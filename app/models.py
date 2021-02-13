@@ -6,6 +6,15 @@ from flask_login import UserMixin
 from app import login
 from hashlib import md5
 
+
+# created a table that stores data of the foreign keys representing followers
+followers = db.Table(
+    'followers', 
+    db.Column('follower_id', db.Integer, db.ForeignKey('user.id')),
+    db.Column('following_id', db.Integer, db.ForeignKey('user.id'))
+)
+
+
 # created a table to store users' information ()
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -13,7 +22,14 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    about_me = db.Column(db.String(140))
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
 
+    following = db.relationship(
+        'User', secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.following_id == id),
+        backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')       
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -28,9 +44,26 @@ class User(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(
             digest, size)
-    
-    about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def follow(self, user):
+        if not self.is_following(user):
+            self.following.append(user)
+
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.following.remove(user)
+
+    def is_following(self, user):
+        return self.following.filter(
+            followers.c.following_id == user.id).count() > 0
+
+    def following_posts(self):
+        following = Post.query.join(
+            followers, (followers.c.following_id == Post.user_id)).filter(
+                followers.c.follower_id == self.id)
+        own = Post.query.filter_by(user_id=self.id)
+        return following.union(own).order_by(Post.timestamp.desc())
+
 
 # created a table to store users' posts
 class Post(db.Model):
@@ -42,9 +75,15 @@ class Post(db.Model):
 def __repr__(self):
     return '<Post {}>'.format(self.body)
 
+
 # uses Flask-Login user loader function to keep user logged in by using an id
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+
+
+
 
 
