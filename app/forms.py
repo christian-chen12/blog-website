@@ -53,7 +53,18 @@ class PostForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+# allows users to click on a link to reset their password
+class ResetPasswordRequestForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Password Reset')
 
+
+# allows users to reset password
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField(
+        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Request Password Reset')
 
 # hidden field used to follow and unfollow users 
 class EmptyForm(FlaskForm):
