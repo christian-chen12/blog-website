@@ -44,3 +44,4 @@ TypeError: '<' not supported between instances of 'type' and 'int'
 2021-02-16 01:35:42,599 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
 2021-02-16 01:43:08,358 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
 2021-02-16 01:45:58,753 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 13:14:17,903 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
