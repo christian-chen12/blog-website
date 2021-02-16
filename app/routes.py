@@ -27,16 +27,31 @@ def index():
         db.session.commit()
         flash('Your post was uploaded successfully!')
         return redirect(url_for('index'))
-    posts = current_user.followed_posts().all()
-    return render_template('index.html', title='Home Page', form=form, posts=posts)
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.following_posts().paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('index', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('index.html', title='Home', form=form,
+                            posts=posts.items, next_url=next_url, 
+                            prev_url=prev_url)
 
 
 # similar to the index page but only shows the posts of followed users
 @app.route('/explore')
 @login_required
 def explore():
-    posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return render_template('index.html', title='Explore', posts=posts)
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('explore', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('explore', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template('index.html', title='Explore', posts=posts.items, 
+                            next_url=next_url, prev_url=prev_url)
 
 
 # uses flask-login to allow users to log in and their information be remebered
@@ -56,7 +71,7 @@ def login():
             next_page = url_for('index')
         return redirect(next_page)
         return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=fo)
+    return render_template('login.html', title='Sign In', form=form)
 
 
 # uses flask-login to log out user and redirect them to the index page
@@ -87,12 +102,16 @@ def register():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
+    page = request.args.get('page', 1, type=int)
+    posts = user.posts.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('user', username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('user', username=user.username, page=posts.prev_num) \
+        if posts.has_prev else None
     form = EmptyForm()
-    return render_template('user.html', user=user, posts=posts, form=form)
+    return render_template('user.html', user=user, posts=posts.items, 
+                            next_url=next_url, prev_url=prev_url, form=form)
 
 # page allows users to create a new profile and saves the information to the database
 @app.route('/edit_profile', methods=['GET', 'POST'])

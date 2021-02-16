@@ -6,23 +6,27 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from logging.handlers import SMTPHandler, RotatingFileHandler
+from flask_mail import Mail
 
 
 # initiate the Flask app
 app = Flask(__name__)
 
-# use the config.py file for configuration
+# uses config.py file for configuration
 app.config.from_object(Config)
 
-# use SQLAlchemy as database management
+# uses SQLAlchemy as database management
 db = SQLAlchemy(app)
 
-# use Flask-Migrate extension for database migration management
+# uses Flask-Migrate extension for database migration management
 migrate = Migrate(app, db)
 
-# use Flask-Login to manage the user's logged-in state
+# uses Flask-Login to manage the user's logged-in state
 login = LoginManager(app)
 login.login_view = 'login'
+
+# uses flask_mail to send emails
+mail = Mail(app)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:

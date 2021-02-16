@@ -1,4 +1,4 @@
-2021-02-15 21:40:30,620 ERROR: Exception on /user/cooperchen12 [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+2021-02-16 01:03:48,596 ERROR: Exception on /explore [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,32 +14,12 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 89, in user
-    return render_template('user.html', user=user, posts=posts)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 30, in top-level template code
-    {% block content %}{% endblock %}
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/user.html", line 16, in block "content"
-    {{ form.hidden_tag() }}
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 471, in getattr
-    return getattr(obj, attribute)
-jinja2.exceptions.UndefinedError: 'form' is undefined
-2021-02-15 21:41:35,566 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-15 21:42:31,300 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-15 21:42:54,408 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-15 23:32:37,005 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-15 23:32:39,631 ERROR: Exception on /user/cooperchen12 [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 47, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 484, in paginate
+    if page < 1:
+TypeError: '<' not supported between instances of 'type' and 'int'
+2021-02-16 01:03:51,556 ERROR: Exception on /explore [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -55,45 +35,9 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 95, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 15, in template
-    <a href="{{ url_for('login') }}">Login</a>
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
-2021-02-15 23:33:17,568 ERROR: Exception on / [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 30, in index
-    posts = current_user.followed_posts().all()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/werkzeug/local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'User' object has no attribute 'followed_posts'
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 47, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 484, in paginate
+    if page < 1:
+TypeError: '<' not supported between instances of 'type' and 'int'
+2021-02-16 01:04:07,175 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
