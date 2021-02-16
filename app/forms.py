@@ -45,8 +45,18 @@ class EditProfileForm(FlaskForm):
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
                 raise ValidationError('Please use a different username.')
-    
 
+
+# allows users to create posts
+class PostForm(FlaskForm):
+    post = TextAreaField('Say Something', validators=[
+        DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Submit')
+
+
+
+
+# hidden field used to follow and unfollow users 
 class EmptyForm(FlaskForm):
     submit = SubmitField('Submit')       
 
