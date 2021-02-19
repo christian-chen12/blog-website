@@ -1,4 +1,4 @@
-2021-02-15 23:58:50,993 ERROR: Exception on / [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+2021-02-16 01:03:48,596 ERROR: Exception on /explore [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,29 +14,12 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 31, in index
-    return render_template('index.html', title='Home Page', form=form, posts=posts)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 15, in template
-    <a href="{{ url_for('login') }}">Login</a>
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
-2021-02-15 23:59:16,269 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-15 23:59:18,801 ERROR: Exception on / [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 47, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 484, in paginate
+    if page < 1:
+TypeError: '<' not supported between instances of 'type' and 'int'
+2021-02-16 01:03:51,556 ERROR: Exception on /explore [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,29 +35,20 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 31, in index
-    return render_template('index.html', title='Home Page', form=form, posts=posts)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 19, in template
-    <a href="{{ url_for('explore) }}">Explore</a>
-jinja2.exceptions.TemplateSyntaxError: unexpected char "'" at 612
-2021-02-16 00:00:43,017 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
-2021-02-16 00:00:52,165 ERROR: Exception on / [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 47, in explore
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 484, in paginate
+    if page < 1:
+TypeError: '<' not supported between instances of 'type' and 'int'
+2021-02-16 01:04:07,175 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
+2021-02-16 01:35:42,599 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 01:43:08,358 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 01:45:58,753 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 13:14:17,903 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 14:14:36,588 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 14:19:06,319 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 15:52:22,825 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 15:52:31,931 ERROR: Exception on /reset_password_request [POST] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -88,27 +62,49 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 31, in index
-    return render_template('index.html', title='Home Page', form=form, posts=posts)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
-    return _render(
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/index.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 15, in template
-    <a href="{{ url_for('login') }}">Login</a>
-jinja2.exceptions.TemplateSyntaxError: expected token ',', got 'login'
-2021-02-16 00:04:33,690 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:51]
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 185, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/cooper/Desktop/Websites/microblog/app/email.py", line 11, in send_password_reset_email
+    token = user.get_reset_password_token()
+AttributeError: 'User' object has no attribute 'get_reset_password_token'
+2021-02-16 15:58:39,337 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 15:58:59,202 ERROR: Exception on /reset_password_request [POST] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 185, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/cooper/Desktop/Websites/microblog/app/email.py", line 13, in send_password_reset_email
+    sender=app.config['ADMINS'][0],
+NameError: name 'app' is not defined
+2021-02-16 16:01:01,051 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
+2021-02-16 16:01:07,078 ERROR: Exception on /reset_password_request [POST] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 185, in reset_password_request
+    send_password_reset_email(user)
+  File "/Users/cooper/Desktop/Websites/microblog/app/email.py", line 15, in send_password_reset_email
+    text_body=render_template('email/reset_password.txt',
+NameError: name 'render_template' is not defined
+2021-02-16 16:02:22,636 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:55]
