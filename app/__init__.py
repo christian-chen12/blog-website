@@ -69,13 +69,15 @@ if not app.debug:
 # works with Accept-Language to use users' prefered language
 @babel.localeselector
 def get_locale():
-    #return request.accept_languages.best_match(app.config['LANGUAGES'])
-    #return 'de'
-    #return 'es'
-    #return 'fr'
-    #return 'nl'
-    #return 'ru'
-    #return 'sv'
-    #return 'zh'
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+### returns laguages manually ###   
+    # return 'de'
+    # return 'es'
+    # return 'fr'
+    # return 'nl'
+    # return 'ru'
+    # return 'sv'
+    # return 'zh'
+    # return 'fi'
 
 from app import routes, models, errors

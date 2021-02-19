@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-19 16:58-0500\n"
+"POT-Creation-Date: 2021-02-19 17:56-0500\n"
 "PO-Revision-Date: 2021-02-19 16:44-0500\n"
 "Last-Translator: \n"
 "Language: zh\n"
@@ -30,7 +30,7 @@ msgstr "密码"
 msgid "Remember Me"
 msgstr "记住我"
 
-#: app/forms.py:13 app/routes.py:76 app/templates/login.html:5
+#: app/forms.py:13 app/routes.py:77 app/templates/login.html:5
 msgid "Sign In"
 msgstr "登录"
 
@@ -42,7 +42,7 @@ msgstr "邮箱"
 msgid "Repeat Password"
 msgstr "重复输入密码"
 
-#: app/forms.py:24 app/routes.py:99 app/templates/register.html:5
+#: app/forms.py:24 app/routes.py:100 app/templates/register.html:5
 msgid "Register"
 msgstr "注册"
 
@@ -70,66 +70,66 @@ msgstr "说些什么"
 msgid "Request Password Reset"
 msgstr "请求密码重置"
 
-#: app/routes.py:30
+#: app/routes.py:31
 msgid "Your post is now live!"
 msgstr "文章已发布！"
 
-#: app/routes.py:39 app/templates/base.html:21
+#: app/routes.py:40 app/templates/base.html:21
 msgid "Home"
 msgstr "首页"
 
-#: app/routes.py:55 app/templates/base.html:22
+#: app/routes.py:56 app/templates/base.html:22
 msgid "Explore"
 msgstr "探索"
 
-#: app/routes.py:69
+#: app/routes.py:70
 msgid "Invalid username or password"
 msgstr "无效的用户名或密码"
 
-#: app/routes.py:97
+#: app/routes.py:98
 msgid "Congratulations, you are now a registered user!"
 msgstr "恭喜您注册成功！"
 
-#: app/routes.py:127
+#: app/routes.py:128
 msgid "Your changes have been saved."
 msgstr "你的修改已被保存。"
 
-#: app/routes.py:132 app/templates/edit_profile.html:5
+#: app/routes.py:133 app/templates/edit_profile.html:5
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
-#: app/routes.py:144 app/routes.py:165
+#: app/routes.py:145 app/routes.py:166
 #, python-format
 msgid "User %(username)s not found."
 msgstr "%(username)s 用户不存在。"
 
-#: app/routes.py:147
+#: app/routes.py:148
 msgid "You cannot follow yourself!"
 msgstr "不可以关注自己！"
 
-#: app/routes.py:151
+#: app/routes.py:152
 #, python-format
 msgid "You are following %(username)s!"
 msgstr "您已关注 %(username)s！"
 
-#: app/routes.py:168
+#: app/routes.py:169
 msgid "You cannot unfollow yourself!"
 msgstr "不可以取消关注 自己！"
 
-#: app/routes.py:172
+#: app/routes.py:173
 #, python-format
 msgid "You are not following %(username)s."
 msgstr "您没有关注%(username)s。"
 
-#: app/routes.py:189
+#: app/routes.py:190
 msgid "Check your email for the instructions to reset your password"
 msgstr "请按照邮件中的提示重置您的密码"
 
-#: app/routes.py:192 app/templates/reset_password_request.html:5
+#: app/routes.py:193 app/templates/reset_password_request.html:5
 msgid "Reset Password"
 msgstr "重置密码"
 
-#: app/routes.py:207
+#: app/routes.py:208
 msgid "Your password has been reset."
 msgstr "您的密码已重置。"
 
