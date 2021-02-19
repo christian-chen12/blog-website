@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-02-19 03:15-0500\n"
-"PO-Revision-Date: 2021-02-19 03:23-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-02-19 16:58-0500\n"
+"PO-Revision-Date: 2021-02-19 16:44-0500\n"
+"Last-Translator: \n"
 "Language: sv\n"
 "Language-Team: sv <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -20,216 +20,216 @@ msgstr ""
 
 #: app/forms.py:10 app/forms.py:18 app/forms.py:39
 msgid "Username"
-msgstr ""
+msgstr "Användarnamn"
 
 #: app/forms.py:11 app/forms.py:20 app/forms.py:70
 msgid "Password"
-msgstr ""
+msgstr "Lösenord"
 
 #: app/forms.py:12
 msgid "Remember Me"
-msgstr ""
+msgstr "Kom ihåg mig"
 
-#: app/forms.py:13 app/routes.py:78 app/templates/login.html:5
+#: app/forms.py:13 app/routes.py:76 app/templates/login.html:5
 msgid "Sign In"
-msgstr ""
+msgstr "Logga in"
 
 #: app/forms.py:19 app/forms.py:64
 msgid "Email"
-msgstr ""
+msgstr "E-post"
 
 #: app/forms.py:22 app/forms.py:72
 msgid "Repeat Password"
-msgstr ""
+msgstr "Upprepa lösenord"
 
-#: app/forms.py:24 app/routes.py:101 app/templates/register.html:5
+#: app/forms.py:24 app/routes.py:99 app/templates/register.html:5
 msgid "Register"
-msgstr ""
+msgstr "Registrera"
 
 #: app/forms.py:29 app/forms.py:53
 msgid "Please use a different username."
-msgstr ""
+msgstr "Använd ett annat användarnamn."
 
 #: app/forms.py:34
 msgid "Please use a different email address."
-msgstr ""
+msgstr "Använd en annan e-postadress."
 
 #: app/forms.py:40
 msgid "About me"
-msgstr ""
+msgstr "Om mig"
 
 #: app/forms.py:42 app/forms.py:59
 msgid "Submit"
-msgstr ""
+msgstr "Skicka"
 
 #: app/forms.py:58
 msgid "Say something"
-msgstr ""
+msgstr "Säg något"
 
 #: app/forms.py:65 app/forms.py:74
 msgid "Request Password Reset"
-msgstr ""
+msgstr "Begär återställning av lösenord"
 
-#: app/routes.py:32
+#: app/routes.py:30
 msgid "Your post is now live!"
-msgstr ""
+msgstr "Ditt inlägg är nu live!"
 
-#: app/routes.py:41 app/templates/base.html:21
+#: app/routes.py:39 app/templates/base.html:21
 msgid "Home"
-msgstr ""
+msgstr "Hem"
 
-#: app/routes.py:57 app/templates/base.html:22
+#: app/routes.py:55 app/templates/base.html:22
 msgid "Explore"
-msgstr ""
+msgstr "Utforska"
 
-#: app/routes.py:71
+#: app/routes.py:69
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Ogiltigt användarnamn eller lösenord"
 
-#: app/routes.py:99
+#: app/routes.py:97
 msgid "Congratulations, you are now a registered user!"
-msgstr ""
+msgstr "Grattis, du är nu registrerad användare!"
 
-#: app/routes.py:129
+#: app/routes.py:127
 msgid "Your changes have been saved."
-msgstr ""
+msgstr "Dina ändringar har sparats."
 
-#: app/routes.py:134 app/templates/edit_profile.html:5
+#: app/routes.py:132 app/templates/edit_profile.html:5
 msgid "Edit Profile"
-msgstr ""
+msgstr "Redigera profil"
 
-#: app/routes.py:146 app/routes.py:167
+#: app/routes.py:144 app/routes.py:165
 #, python-format
 msgid "User %(username)s not found."
-msgstr ""
+msgstr "Användaren %(username)s hittades inte."
 
-#: app/routes.py:149
+#: app/routes.py:147
 msgid "You cannot follow yourself!"
-msgstr ""
+msgstr "Du kan inte följa dig själv!"
 
-#: app/routes.py:153
+#: app/routes.py:151
 #, python-format
 msgid "You are following %(username)s!"
-msgstr ""
+msgstr "Du följer %(username)s!"
 
-#: app/routes.py:170
+#: app/routes.py:168
 msgid "You cannot unfollow yourself!"
-msgstr ""
+msgstr "Du kan inte följa dig själv!"
 
-#: app/routes.py:174
+#: app/routes.py:172
 #, python-format
 msgid "You are not following %(username)s."
-msgstr ""
+msgstr "Du följer inte %(username)s."
 
-#: app/routes.py:191
+#: app/routes.py:189
 msgid "Check your email for the instructions to reset your password"
-msgstr ""
+msgstr "Kontrollera din e-post för instruktioner för att återställa lösenordet"
 
-#: app/routes.py:194 app/templates/reset_password_request.html:5
+#: app/routes.py:192 app/templates/reset_password_request.html:5
 msgid "Reset Password"
-msgstr ""
+msgstr "Återställ lösenord"
 
-#: app/routes.py:209
+#: app/routes.py:207
 msgid "Your password has been reset."
-msgstr ""
+msgstr "Ditt lösenord har blivit återställt."
 
 #: app/templates/404.html:4
 msgid "Not Found"
-msgstr ""
+msgstr "Hittades inte"
 
 #: app/templates/404.html:5 app/templates/500.html:6
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 #: app/templates/500.html:4
 msgid "An unexpected error has occurred"
-msgstr ""
+msgstr "Ett oväntat fel har uppstått"
 
 #: app/templates/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr ""
+msgstr "Administratören har meddelats. Beklagar olägenheten!"
 
 #: app/templates/_post.html:14
 #, python-format
 msgid "%(username)s said %(when)s"
-msgstr ""
+msgstr "%(username)s sa %(when)s"
 
 #: app/templates/base.html:4
 msgid "Welcome to CSGO Blog"
-msgstr ""
+msgstr "Välkommen till CSGO Blog"
 
 #: app/templates/base.html:26
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 #: app/templates/base.html:28
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: app/templates/base.html:29
 msgid "Logout"
-msgstr ""
+msgstr "Logga ut"
 
 #: app/templates/index.html:6
 #, python-format
 msgid "Hi, %(username)s!"
-msgstr ""
+msgstr "Hej, %(username)s!"
 
 #: app/templates/index.html:18 app/templates/user.html:41
 msgid "Newer posts"
-msgstr ""
+msgstr "Nyare inlägg"
 
 #: app/templates/index.html:23 app/templates/user.html:46
 msgid "Older posts"
-msgstr ""
+msgstr "Äldre inlägg"
 
 #: app/templates/login.html:12
 msgid "New User?"
-msgstr ""
+msgstr "Ny användare?"
 
 #: app/templates/login.html:12
 msgid "Click to Register!"
-msgstr ""
+msgstr "Klicka för att registrera dig!"
 
 #: app/templates/login.html:14
 msgid "Forgot Your Password?"
-msgstr ""
+msgstr "Glömt ditt lösenord?"
 
 #: app/templates/login.html:15
 msgid "Click to Reset It"
-msgstr ""
+msgstr "Klicka för att återställa det"
 
 #: app/templates/reset_password.html:5
 msgid "Reset Your Password"
-msgstr ""
+msgstr "Återställ ditt lösenord"
 
 #: app/templates/user.html:8
 msgid "User"
-msgstr ""
+msgstr "Användare"
 
 #: app/templates/user.html:11
 msgid "Last seen on"
-msgstr ""
+msgstr "Sågs senast på"
 
 #: app/templates/user.html:13
 #, python-format
 msgid "%(count)d followers"
-msgstr ""
+msgstr "%(count)d anhängare"
 
 #: app/templates/user.html:13
 #, python-format
 msgid "%(count)d following"
-msgstr ""
+msgstr "%(count)d efter"
 
 #: app/templates/user.html:15
 msgid "Edit your profile"
-msgstr ""
+msgstr "Redigera din profil"
 
 #: app/templates/user.html:20
 msgid "Follow"
-msgstr ""
+msgstr "Följ"
 
 #: app/templates/user.html:27
 msgid "Unfollow"
-msgstr ""
+msgstr "Sluta följ"
 
