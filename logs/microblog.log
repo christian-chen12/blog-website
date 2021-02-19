@@ -1,4 +1,4 @@
-2021-02-19 00:40:35,865 ERROR: Exception on /user/cooperchen12 [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
+2021-02-19 14:31:10,871 ERROR: Exception on /user/cooperchen12 [GET] [in /Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,7 +14,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 114, in user
+  File "/Users/cooper/Desktop/Websites/microblog/app/routes.py", line 115, in user
     return render_template('user.html', user=user, posts=posts.items,
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/flask/templating.py", line 137, in render_template
     return _render(
@@ -40,10 +40,9 @@ Traceback (most recent call last):
     {% block content -%}
   File "/Users/cooper/Desktop/Websites/microblog/app/templates/base.html", line 48, in block "content"
     {% block app_content %}{% endblock %}
-  File "/Users/cooper/Desktop/Websites/microblog/app/templates/user.html", line 11, in block "app_content"
-    <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
+  File "/Users/cooper/Desktop/Websites/microblog/app/templates/user.html", line 13, in block "app_content"
+    <p>{{ _('%(count)d followers', count=user.followers.count()) }}, {{ _('%(count)d following', count=user.followed.count()) }}</p>
   File "/Users/cooper/Desktop/Websites/microblog/venv/lib/python3.9/site-packages/jinja2/environment.py", line 471, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'app.models.User object' has no attribute 'followed'
-2021-02-19 00:44:50,917 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:59]
-2021-02-19 01:48:53,056 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:63]
+2021-02-19 14:34:07,334 INFO: Microblog startup [in /Users/cooper/Desktop/Websites/microblog/app/__init__.py:67]
